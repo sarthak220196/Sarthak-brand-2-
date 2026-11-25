@@ -10,6 +10,7 @@ import Person from "@/components/Person";
 import Contact from "@/components/Contact";
 import EasterEgg from "@/components/EasterEgg";
 import MotionPolish from "@/components/MotionPolish";
+import FrequencyRotor from "@/components/FrequencyRotor";
 import Reveal from "@/components/Reveal";
 import { availableCv, availablePhotos } from "@/lib/server";
 
@@ -27,6 +28,7 @@ export default function Page() {
         Skip to the journey
       </a>
       <MotionPolish />
+      <FrequencyRotor />
       <Intro />
       <FrequencyNav />
       <CommandPalette cv={cv} />
