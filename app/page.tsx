@@ -1,3 +1,4 @@
+
 import Intro from "@/components/Intro";
 import FrequencyNav from "@/components/FrequencyNav";
 import CommandPalette from "@/components/CommandPalette";
@@ -15,7 +16,6 @@ import Reveal from "@/components/Reveal";
 import { availableCv, availablePhotos } from "@/lib/server";
 
 export default function Page() {
-  // checked at build time: links only appear if the files are really there
   const cv = availableCv();
   const photos = availablePhotos();
 
