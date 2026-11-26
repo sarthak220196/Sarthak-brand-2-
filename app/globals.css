@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f1ede2;
+  --bone: #e6e0d1;
+  --char: #2b2b2e;
+  --ink: #000000;
+  --lime: #c8f135;
+  --cobalt: #1e3fd8;
+  --mute: #6b675d;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--char);
+  font-family: "Archivo Variable", Archivo, "Helvetica Neue", Arial, sans-serif;
+  font-variation-settings: "wdth" 100;
+  font-feature-settings: "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--lime); color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+.bg-char :focus-visible, .bg-ink :focus-visible, .bg-cobalt :focus-visible {
+  outline-color: var(--lime);
+}
+/* sections receive programmatic focus after navigation; no ring needed there */
+section:focus, article:focus { outline: none; }
+
+/* SVG buttons on the map: show a ring only for keyboard focus */
+.kb-ring { opacity: 0; transition: opacity 150ms; }
+g[role="button"]:focus-visible .kb-ring { opacity: 1; }
+g[role="button"]:focus { outline: none; }
+
+.display {
+  font-family: "Archivo Variable", Archivo, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.032em;
+}
+.serif { font-family: "Newsreader Variable", Newsreader, Georgia, serif; font-optical-sizing: auto; }
+.tabular { font-variant-numeric: tabular-nums; }
+.text-balance { text-wrap: balance; }
+
+/* Range inputs styled like a mixer fader */
+input[type="range"].fader {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+}
+input[type="range"].fader::-webkit-slider-runnable-track { height: 3px; background: currentColor; }
+input[type="range"].fader::-moz-range-track { height: 3px; background: currentColor; }
+input[type="range"].fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 30px; margin-top: -13.5px;
+  background: var(--lime); border: 2px solid var(--ink);
+}
+input[type="range"].fader::-moz-range-thumb {
+  width: 12px; height: 26px; background: var(--lime); border: 2px solid var(--ink); border-radius: 0;
+}
+input[type="range"].fader:focus-visible { outline-offset: 6px; }
+
+.grain {
+  background-image: radial-gradient(rgba(0,0,0,0.07) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
